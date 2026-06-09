@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://wa.me">
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJQT9QPGQL"></script>
     <script>
@@ -47,9 +54,11 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Zumra Hotels | حجز فنادق مكة والمدينة | B2B & B2C Hotel Booking">
     <meta property="og:description" content="Premium hotel booking in Makkah & Madinah. 5-star to economy. B2B allotments for travel agencies & direct booking for Hajj and Umrah pilgrims. Best rates guaranteed.">
-    <meta property="og:image" content="./zumra-logo.png">
+    <meta property="og:image" content="https://www.zumrahotels.com/zumra-logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zumrahotels.com">
+    <meta property="og:url" content="https://www.zumrahotels.com">
     <meta property="og:site_name" content="Zumra Hotels - زمرة للفنادق">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ar_SA">
@@ -58,7 +67,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Zumra Hotels | فنادق مكة والمدينة المنورة">
     <meta name="twitter:description" content="B2B & B2C hotel booking in Makkah and Madinah. Hajj & Umrah hotels from luxury to economy. Exclusive rates for travel agencies.">
-    <meta name="twitter:image" content="./zumra-logo.png">
+    <meta name="twitter:image" content="https://www.zumrahotels.com/zumra-logo.png">
 
     <!-- Schema.org Structured Data - Organization -->
     <script type="application/ld+json">
@@ -805,6 +814,42 @@
             opacity: 0.5;
         }
 
+        /* Stats Counter Section */
+        .stats-section {
+            background: white;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -873,6 +918,9 @@
             .service-card { padding: 25px; }
             .destinations-grid { grid-template-columns: 1fr; }
             .destination-card { height: 320px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .stat-number { font-size: 2.2rem; }
+            .stat-label { font-size: 0.8rem; }
             .b2b-features { grid-template-columns: 1fr 1fr; gap: 15px; }
             .b2b-feature { padding: 15px; }
             .cta-section { padding: 60px 15px; }
@@ -938,6 +986,28 @@
         <div class="scroll-indicator">
             <span data-en="Scroll" data-ar="اسحب">Scroll</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="stats-section">
+        <div class="stats-grid fade-in">
+            <div class="stat-item">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label" data-en="Hotels" data-ar="فندق">Hotels</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="12">0</div>
+                <div class="stat-label" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label" data-en="Destinations" data-ar="وجهة">Destinations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label" data-en="Happy Partners" data-ar="شريك سعيد">Happy Partners</div>
+            </div>
         </div>
     </section>
 
@@ -1208,6 +1278,34 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Animated Counter
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                counter.textContent = target + '+';
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current) + '+';
+                            }
+                        }, 16);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const statsGrid = document.querySelector('.stats-grid');
+        if (statsGrid) counterObserver.observe(statsGrid);
 
         // Auto-detect browser language
         (function() {
