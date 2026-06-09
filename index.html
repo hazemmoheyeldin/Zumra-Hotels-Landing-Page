@@ -314,6 +314,7 @@
             position: relative;
             background: linear-gradient(135deg, var(--darker) 0%, #16213e 50%, #0f3460 100%);
             overflow: visible;
+            padding-top: 100px;
         }
 
         .hero::before {
@@ -815,10 +816,7 @@
             opacity: 0.5;
         }
 
-        /* Page Loader - Removed for faster load */
-        .page-loader {
-            display: none;
-        }
+        /* Page Loader - Removed */
 
         /* Promo Banner */
         .promo-banner {
@@ -958,7 +956,7 @@
         /* Back to Top */
         .back-to-top {
             position: fixed;
-            bottom: 90px;
+            bottom: 100px;
             right: 30px;
             width: 45px;
             height: 45px;
@@ -989,9 +987,9 @@
         /* WhatsApp Widget */
         .wa-widget {
             position: fixed;
-            bottom: 90px;
+            bottom: 100px;
             right: 30px;
-            z-index: 999;
+            z-index: 1002;
             display: none;
         }
 
@@ -1115,20 +1113,21 @@
             .menu-toggle { display: block; }
             .nav-links {
                 position: fixed;
-                top: 0;
+                top: 38px;
                 right: -100%;
                 width: 70%;
-                height: 100vh;
+                height: calc(100vh - 38px);
                 background: white;
                 flex-direction: column;
                 padding: 80px 30px;
                 transition: right 0.4s;
                 box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+                z-index: 1000;
             }
             .nav-links.open { right: 0; }
             .nav-links a { color: var(--dark) !important; font-size: 18px; }
             .navbar { padding: 15px 20px; }
-            .hero { min-height: 100vh; padding-top: 80px; }
+            .hero { min-height: 100vh; padding-top: 120px; }
             .hero-logo { width: 200px; }
             .hero-content { padding: 0 15px; }
             .hero h1 { font-size: 1.6rem; }
@@ -1137,6 +1136,7 @@
             .hero-cta { flex-direction: column; align-items: center; }
             .btn { width: 100%; max-width: 280px; justify-content: center; }
             .lang-toggle { top: auto; right: auto; }
+            .promo-banner { font-size: 0.75rem; padding: 8px 10px; }
             section { padding: 60px 15px; }
             .section-header h2 { font-size: 1.5rem; }
             .stars-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -1155,9 +1155,11 @@
             .footer-content { grid-template-columns: 1fr; gap: 30px; }
             .testimonials-grid { grid-template-columns: 1fr; }
             .quote-form .form-row { grid-template-columns: 1fr; }
-            .wa-widget-box { width: 260px; }
-            .back-to-top { bottom: 85px; right: 20px; }
-            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .wa-widget-box { width: 260px; right: 10px; }
+            .wa-widget { bottom: 85px; right: 15px; }
+            .back-to-top { bottom: 85px; right: 15px; width: 40px; height: 40px; }
+            .whatsapp-float { bottom: 20px; right: 15px; width: 55px; height: 55px; }
+            .scroll-indicator { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -1649,15 +1651,23 @@
         // WhatsApp Widget Toggle
         const waToggle = document.getElementById('waToggle');
         const waWidget = document.getElementById('waWidget');
+        const backToTop = document.getElementById('backToTop');
         waToggle.addEventListener('click', (e) => {
             e.preventDefault();
             waWidget.classList.toggle('open');
+            // Hide back-to-top when widget is open
+            if (waWidget.classList.contains('open')) {
+                backToTop.style.display = 'none';
+            } else {
+                backToTop.style.display = '';
+            }
         });
 
         // Close widget when clicking outside
         document.addEventListener('click', (e) => {
             if (!waWidget.contains(e.target) && !waToggle.contains(e.target)) {
                 waWidget.classList.remove('open');
+                backToTop.style.display = '';
             }
         });
     </script>
