@@ -293,7 +293,7 @@
             text-align: center;
             position: relative;
             background: linear-gradient(135deg, var(--darker) 0%, #16213e 50%, #0f3460 100%);
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero::before {
@@ -313,7 +313,7 @@
         .hero-logo {
             width: 320px;
             margin: 0 auto 40px;
-            margin-top: 20px;
+            margin-top: 50px;
             animation: fadeInDown 1s ease;
         }
 
@@ -352,6 +352,8 @@
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeInUp 1s ease 0.8s both;
+            position: relative;
+            z-index: 5;
         }
 
         .btn {
@@ -1037,7 +1039,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-col">
-                <img src="./zumra-logo.png" alt="Zumra Hotels" style="height:50px; margin-bottom:15px; background:rgba(255,255,255,0.9); border-radius:8px; padding:6px 10px;">
+                <img src="./zumra-logo.png" alt="Zumra Hotels" style="height:80px; margin-bottom:15px;">
                 <p data-en="Your trusted partner for hotel accommodation in the Holy Cities of Makkah and Madinah." data-ar="شريكك الموثوق للإقامة الفندقية في مكة المكرمة والمدينة المنورة.">Your trusted partner for hotel accommodation in the Holy Cities of Makkah and Madinah.</p>
             </div>
             <div class="footer-col">
