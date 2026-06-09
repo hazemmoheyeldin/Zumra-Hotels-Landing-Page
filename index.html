@@ -31,6 +31,8 @@
     <link rel="alternate" hreflang="ar" href="https://zumrahotels.com">
     <link rel="alternate" hreflang="x-default" href="https://zumrahotels.com">
     <link rel="icon" type="image/png" href="./zumra-logo.png">
+    <link rel="apple-touch-icon" href="./zumra-logo.png">
+    <link rel="shortcut icon" type="image/png" href="./zumra-logo.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Zumra Hotels | حجز فنادق مكة والمدينة | B2B & B2C Hotel Booking">
@@ -814,9 +816,44 @@
             .nav-links.open { right: 0; }
             .nav-links a { color: var(--dark) !important; font-size: 18px; }
             .navbar { padding: 15px 20px; }
-            .hero-logo { width: 160px; }
+            .hero { min-height: 100vh; padding-top: 80px; }
+            .hero-logo { width: 200px; }
+            .hero-content { padding: 0 15px; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero h2 { font-size: 1rem; }
+            .hero p { font-size: 0.95rem; margin-bottom: 25px; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 280px; justify-content: center; }
             .lang-toggle { top: auto; right: auto; }
+            section { padding: 60px 15px; }
+            .section-header h2 { font-size: 1.5rem; }
+            .stars-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .star-card { padding: 25px 15px; }
+            .services-grid { grid-template-columns: 1fr; gap: 20px; }
+            .service-card { padding: 25px; }
             .destinations-grid { grid-template-columns: 1fr; }
+            .destination-card { height: 320px; }
+            .b2b-features { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .b2b-feature { padding: 15px; }
+            .cta-section { padding: 60px 15px; }
+            .cta-section h2 { font-size: 1.4rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 30px; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-logo { width: 160px; }
+            .hero h1 { font-size: 1.4rem; }
+            .stars-grid { grid-template-columns: 1fr; }
+            .b2b-features { grid-template-columns: 1fr; }
+            .destination-card { height: 280px; }
+            .navbar { padding: 12px 15px; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-logo { width: 260px; }
+            .stars-grid { grid-template-columns: 1fr 1fr; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
