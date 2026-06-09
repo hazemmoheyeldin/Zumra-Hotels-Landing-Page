@@ -619,10 +619,11 @@
         /* Destinations */
         .destinations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
         .destination-card {
@@ -633,6 +634,8 @@
             background: var(--dark);
             display: flex;
             align-items: flex-end;
+            background-size: cover;
+            background-position: center;
         }
 
         .destination-card.makkah {
@@ -1144,8 +1147,12 @@
             .star-card { padding: 25px 15px; }
             .services-grid { grid-template-columns: 1fr; gap: 20px; }
             .service-card { padding: 25px; }
-            .destinations-grid { grid-template-columns: 1fr; }
-            .destination-card { height: 320px; }
+            .destinations-grid { grid-template-columns: 1fr; gap: 20px; }
+            .destination-card { height: 280px; border-radius: 16px; }
+            .destination-content { padding: 20px; }
+            .destination-content h3 { font-size: 1.4rem; }
+            .destination-content p { font-size: 0.9rem; margin-bottom: 15px; }
+            .mosque-icon { font-size: 2.5rem; top: 15px; right: 15px; }
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
             .stat-number { font-size: 2.2rem; }
             .stat-label { font-size: 0.8rem; }
@@ -1168,7 +1175,9 @@
             .hero h1 { font-size: 1.4rem; }
             .stars-grid { grid-template-columns: 1fr; }
             .b2b-features { grid-template-columns: 1fr; }
-            .destination-card { height: 280px; }
+            .destination-card { height: 250px; }
+            .destination-content { padding: 15px; }
+            .destination-content h3 { font-size: 1.2rem; }
             .navbar { padding: 12px 15px; }
         }
 
