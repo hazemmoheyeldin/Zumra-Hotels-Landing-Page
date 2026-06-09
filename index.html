@@ -24,13 +24,13 @@
     
     <!-- Primary Meta Tags - English -->
     <meta name="description" content="Zumra Hotels - Your trusted B2B & B2C hotel supplier in Makkah and Madinah. From 5-star luxury to economy hotels for Hajj, Umrah, and leisure. Exclusive allotments for travel agencies, tour operators, and direct booking for pilgrims. Best rates guaranteed.">
-    <meta name="keywords" content="hotels Makkah, hotels Madinah, B2B hotel supplier Makkah, B2B hotel rates Saudi Arabia, wholesale hotel booking Makkah, travel agency hotel supplier, hotel allotment Hajj season, hotel allotment Umrah, Hajj hotels 2025, Umrah hotels 2025, 5 star hotels Makkah, 4 star hotels Madinah, economy hotels Makkah, budget hotels Madinah, hotels near Haram Makkah, hotels near Prophet Mosque, hotel booking Makkah, hotel reservation Madinah, group hotel booking Hajj, Umrah package hotels, corporate hotel rates Saudi, hotel block booking Makkah, Zumra Hotels, pilgrimage accommodation, religious tourism hotels Saudi Arabia, Hajj accommodation provider, Umrah hotel deals, Makkah hotel walking distance Haram, Madinah hotel near Masjid Nabawi, Saudi hotel supplier for agencies">
+    <meta name="keywords" content="hotels Makkah, hotels Madinah, B2B hotel supplier Makkah, B2B hotel rates Saudi Arabia, wholesale hotel booking Makkah, travel agency hotel supplier, hotel allotment Hajj season, hotel allotment Umrah, Hajj hotels 2026, Umrah hotels 2026, 5 star hotels Makkah, 4 star hotels Madinah, economy hotels Makkah, budget hotels Madinah, hotels near Haram Makkah, hotels near Prophet Mosque, hotel booking Makkah, hotel reservation Madinah, group hotel booking Hajj, Umrah package hotels, corporate hotel rates Saudi, hotel block booking Makkah, Zumra Hotels, pilgrimage accommodation, religious tourism hotels Saudi Arabia, Hajj accommodation provider, Umrah hotel deals, Makkah hotel walking distance Haram, Madinah hotel near Masjid Nabawi, Saudi hotel supplier for agencies">
     
     <!-- Arabic Meta Description -->
     <meta name="description" lang="ar" content="زمرة للفنادق - شريكك الموثوق لحجز فنادق مكة المكرمة والمدينة المنورة. فنادق من 5 نجوم إلى الاقتصادية لموسم الحج والعمرة. خدمات B2B لوكالات السفر وحجز مباشر للأفراد والمجموعات. أفضل الأسعار وتأكيد فوري.">
     
     <!-- Arabic Keywords -->
-    <meta name="keywords" lang="ar" content="فنادق مكة, فنادق المدينة المنورة, حجز فنادق مكة, حجز فنادق المدينة, فنادق الحج, فنادق العمرة, فنادق قريبة من الحرم, فنادق قريبة من المسجد النبوي, حجز فنادق الحج 2025, حجز فنادق العمرة 2025, فنادق خمس نجوم مكة, فنادق اقتصادية مكة, فنادق اقتصادية المدينة, أسعار فنادق مكة, أسعار فنادق المدينة, شركة فنادق مكة, مورد فنادق للشركات, تخصيصات فنادق الحج, تخصيصات فنادق العمرة, حجز مجموعات فنادق مكة, باقات عمرة فنادق, فنادق رخيصة مكة, فنادق رخيصة المدينة, أفضل فنادق مكة, أفضل فنادق المدينة, زمرة للفنادق, سياحة دينية, إقامة حجاج, فنادق بالقرب من الكعبة, وكالات سفر فنادق مكة, حجز غرف فنادق بالجملة">
+    <meta name="keywords" lang="ar" content="فنادق مكة, فنادق المدينة المنورة, حجز فنادق مكة, حجز فنادق المدينة, فنادق الحج, فنادق العمرة, فنادق قريبة من الحرم, فنادق قريبة من المسجد النبوي, حجز فنادق الحج 2026, حجز فنادق العمرة 2026, فنادق خمس نجوم مكة, فنادق اقتصادية مكة, فنادق اقتصادية المدينة, أسعار فنادق مكة, أسعار فنادق المدينة, شركة فنادق مكة, مورد فنادق للشركات, تخصيصات فنادق الحج, تخصيصات فنادق العمرة, حجز مجموعات فنادق مكة, باقات عمرة فنادق, فنادق رخيصة مكة, فنادق رخيصة المدينة, أفضل فنادق مكة, أفضل فنادق المدينة, زمرة للفنادق, سياحة دينية, إقامة حجاج, فنادق بالقرب من الكعبة, وكالات سفر فنادق مكة, حجز غرف فنادق بالجملة">
     
     <meta name="author" content="Zumra Hotels - زمرة للفنادق">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -249,7 +249,7 @@
         /* Navigation */
         .navbar {
             position: fixed;
-            top: 0;
+            top: 38px;
             left: 0;
             right: 0;
             z-index: 999;
@@ -814,34 +814,9 @@
             opacity: 0.5;
         }
 
-        /* Page Loader */
+        /* Page Loader - Removed for faster load */
         .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--darker);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 99999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-
-        .page-loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-logo {
-            width: 120px;
-            animation: pulse-loader 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse-loader {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.7; }
+            display: none;
         }
 
         /* Promo Banner */
@@ -852,7 +827,10 @@
             padding: 10px 20px;
             font-size: 0.9rem;
             font-weight: 500;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 1001;
         }
 
@@ -1198,11 +1176,6 @@
     </style>
 </head>
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <img src="./zumra-logo.png" alt="Loading..." class="loader-logo">
-    </div>
-
     <!-- Promo Banner -->
     <div class="promo-banner">
         <span data-en="⚡ Faster Bookings, Better Rates — Hajj & Umrah 2026 Now Open!" data-ar="⚡ حجز أسرع، أسعار أفضل — الحج والعمرة 2026 متاح الآن!">⚡ Faster Bookings, Better Rates — Hajj & Umrah 2026 Now Open!</span>
@@ -1661,13 +1634,6 @@
                 switchLang('ar');
             }
         })();
-
-        // Page Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('pageLoader').classList.add('hidden');
-            }, 800);
-        });
 
         // Back to Top Button
         window.addEventListener('scroll', () => {
