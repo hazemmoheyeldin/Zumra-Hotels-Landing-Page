@@ -814,6 +814,254 @@
             opacity: 0.5;
         }
 
+        /* Page Loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            width: 120px;
+            animation: pulse-loader 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-loader {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .promo-banner a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--gray-100);
+            padding: 80px 20px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: var(--gold);
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            margin-top: 25px;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            margin-top: 10px;
+        }
+
+        /* Quote Form */
+        .quote-form-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .quote-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .quote-form input,
+        .quote-form select,
+        .quote-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            background: var(--gray-100);
+        }
+
+        .quote-form input:focus,
+        .quote-form select:focus,
+        .quote-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: white;
+        }
+
+        .quote-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .quote-form button {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quote-form button:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* WhatsApp Widget */
+        .wa-widget {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            z-index: 999;
+            display: none;
+        }
+
+        .wa-widget.open {
+            display: block;
+        }
+
+        .wa-widget-box {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 20px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .wa-widget-header {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .wa-widget-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .wa-widget-options a {
+            display: block;
+            padding: 10px 15px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .wa-widget-options a:hover {
+            background: #dcf8c6;
+            transform: translateX(5px);
+        }
+
+        [dir="rtl"] .wa-widget-options a:hover {
+            transform: translateX(-5px);
+        }
+
         /* Stats Counter Section */
         .stats-section {
             background: white;
@@ -926,6 +1174,10 @@
             .cta-section { padding: 60px 15px; }
             .cta-section h2 { font-size: 1.4rem; }
             .footer-content { grid-template-columns: 1fr; gap: 30px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .quote-form .form-row { grid-template-columns: 1fr; }
+            .wa-widget-box { width: 260px; }
+            .back-to-top { bottom: 85px; right: 20px; }
             .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
         }
 
@@ -946,6 +1198,17 @@
     </style>
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="./zumra-logo.png" alt="Loading..." class="loader-logo">
+    </div>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <span data-en="⚡ Faster Bookings, Better Rates — Hajj & Umrah 2026 Now Open!" data-ar="⚡ حجز أسرع، أسعار أفضل — الحج والعمرة 2026 متاح الآن!">⚡ Faster Bookings, Better Rates — Hajj & Umrah 2026 Now Open!</span>
+        <a href="https://wa.me/201066888551?text=Hello%20Zumra%20Hotels%2C%20I%20would%20like%20to%20inquire%20about%20hotel%20booking" target="_blank" data-en="Book Now →" data-ar="احجز الآن →"> Book Now →</a>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">
@@ -956,6 +1219,7 @@
             <li><a href="#hotels" data-en="Hotels" data-ar="الفنادق">Hotels</a></li>
             <li><a href="#destinations" data-en="Destinations" data-ar="الوجهات">Destinations</a></li>
             <li><a href="#partners" data-en="Partners" data-ar="الشركاء">Partners</a></li>
+            <li><a href="#quote" data-en="Get Quote" data-ar="عرض سعر">Get Quote</a></li>
             <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
         </ul>
         <div class="lang-toggle">
@@ -1138,6 +1402,70 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header fade-in">
+            <h2 data-en="What Our Partners Say" data-ar="ماذا يقول شركاؤنا">What Our Partners Say</h2>
+            <p data-en="Trusted by travel agencies and clients worldwide" data-ar="موثوق من قبل وكالات السفر والعملاء حول العالم">Trusted by travel agencies and clients worldwide</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text" data-en="Zumra Hotels has been our go-to partner for 5 years. Their rates are unbeatable and the booking process is seamless. Highly recommended for any travel agency." data-ar="زمرة للفنادق شريكنا المفضل منذ 5 سنوات. أسعارهم لا تُضاهى وعملية الحجز سلسة. ننصح بهم بشدة لأي وكالة سفر.">Zumra Hotels has been our go-to partner for 5 years. Their rates are unbeatable and the booking process is seamless. Highly recommended for any travel agency.</p>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-author" data-en="Ahmed Al-Rashidi" data-ar="أحمد الرشيدي">Ahmed Al-Rashidi</p>
+                <p class="testimonial-role" data-en="CEO, Al-Noor Travel - Kuwait" data-ar="المدير التنفيذي، النور للسفر - الكويت">CEO, Al-Noor Travel - Kuwait</p>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text" data-en="We booked for a group of 200 pilgrims and everything was perfect. The hotels were exactly as described, close to the Haram. Will definitely use again for Hajj 2026." data-ar="حجزنا لمجموعة من 200 حاج وكل شيء كان مثالياً. الفنادق كانت كما وُصفت، قريبة من الحرم. سنتعامل معهم حتماً لحج 2026.">We booked for a group of 200 pilgrims and everything was perfect. The hotels were exactly as described, close to the Haram. Will definitely use again for Hajj 2026.</p>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-author" data-en="Fatima Hassan" data-ar="فاطمة حسن">Fatima Hassan</p>
+                <p class="testimonial-role" data-en="Operations Manager, Baraka Tours - Egypt" data-ar="مديرة العمليات، بركة تورز - مصر">Operations Manager, Baraka Tours - Egypt</p>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text" data-en="Professional service, instant confirmations, and competitive rates. Zumra Hotels makes hotel sourcing in Saudi Arabia easy for international agencies. A+ service!" data-ar="خدمة احترافية، تأكيد فوري، وأسعار تنافسية. زمرة للفنادق تسهل حجز الفنادق في السعودية للوكالات الدولية. خدمة ممتازة!">Professional service, instant confirmations, and competitive rates. Zumra Hotels makes hotel sourcing in Saudi Arabia easy for international agencies. A+ service!</p>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-author" data-en="Omar Yilmaz" data-ar="عمر يلماز">Omar Yilmaz</p>
+                <p class="testimonial-role" data-en="Director, Star Hajj Services - Turkey" data-ar="المدير، ستار لخدمات الحج - تركيا">Director, Star Hajj Services - Turkey</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request a Quote Form -->
+    <section class="quote-form-section" id="quote">
+        <div class="section-header fade-in">
+            <h2 data-en="Request a Quote" data-ar="اطلب عرض سعر">Request a Quote</h2>
+            <p data-en="Fill the form below and we'll get back to you within 24 hours" data-ar="املأ النموذج أدناه وسنرد عليك خلال 24 ساعة">Fill the form below and we'll get back to you within 24 hours</p>
+        </div>
+        <form class="quote-form fade-in" action="https://formspree.io/f/xpwzgkvl" method="POST">
+            <div class="form-row">
+                <input type="text" name="name" required data-en="Your Name" data-ar="اسمك" placeholder="Your Name">
+                <input type="email" name="email" required data-en="Your Email" data-ar="بريدك الإلكتروني" placeholder="Your Email">
+            </div>
+            <div class="form-row">
+                <input type="tel" name="phone" data-en="Phone / WhatsApp" data-ar="الهاتف / واتساب" placeholder="Phone / WhatsApp">
+                <select name="destination" required>
+                    <option value="" disabled selected data-en="Select Destination" data-ar="اختر الوجهة">Select Destination</option>
+                    <option value="makkah" data-en="Makkah" data-ar="مكة">🕋 Makkah</option>
+                    <option value="madinah" data-en="Madinah" data-ar="المدينة">🕌 Madinah</option>
+                    <option value="both" data-en="Both" data-ar="كلاهما">🕋🕌 Both</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <input type="date" name="checkin" required>
+                <input type="date" name="checkout" required>
+            </div>
+            <select name="hotel_type" required>
+                <option value="" disabled selected data-en="Hotel Category" data-ar="فئة الفندق">Hotel Category</option>
+                <option value="5star">⭐⭐⭐⭐⭐ 5-Star Luxury</option>
+                <option value="4star">⭐⭐⭐⭐ 4-Star</option>
+                <option value="3star">⭐⭐⭐ 3-Star</option>
+                <option value="economy">💰 Economy</option>
+            </select>
+            <textarea name="message" rows="3" data-en="Additional details (group size, special requests...)" data-ar="تفاصيل إضافية (حجم المجموعة، طلبات خاصة...)" placeholder="Additional details (group size, special requests...)"></textarea>
+            <button type="submit" data-en="📩 Send Quote Request" data-ar="📩 أرسل طلب عرض سعر">📩 Send Quote Request</button>
+        </form>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <h2 data-en="Ready to Book Your Stay?" data-ar="مستعد لحجز إقامتك؟">Ready to Book Your Stay?</h2>
@@ -1152,7 +1480,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-col">
-                <img src="./zumra-logo.png" alt="Zumra Hotels" style="height:80px; margin-bottom:15px;">
+                <img src="./zumra-logo.png" alt="Zumra Hotels" style="height:120px; margin-bottom:20px;">
                 <p data-en="Your trusted partner for hotel accommodation in the Holy Cities of Makkah and Madinah." data-ar="شريكك الموثوق للإقامة الفندقية في مكة المكرمة والمدينة المنورة.">Your trusted partner for hotel accommodation in the Holy Cities of Makkah and Madinah.</p>
             </div>
             <div class="footer-col">
@@ -1177,10 +1505,29 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Widget with Options -->
+    <div class="wa-widget" id="waWidget">
+        <div class="wa-widget-box">
+            <div class="wa-widget-header" data-en="💬 How can we help?" data-ar="💬 كيف يمكننا مساعدتك؟">💬 How can we help?</div>
+            <div class="wa-widget-options">
+                <a href="https://wa.me/201066888551?text=Hello%20Zumra%20Hotels%2C%20I%20would%20like%20to%20inquire%20about%20hotel%20booking" target="_blank" data-en="🏨 Hotel Booking Inquiry" data-ar="🏨 استفسار عن حجز فندق">🏨 Hotel Booking Inquiry</a>
+                <a href="https://wa.me/201066888551?text=I%20want%20to%20book%20a%20hotel%20in%20Makkah" target="_blank" data-en="🕋 Hotels in Makkah" data-ar="🕋 فنادق مكة">🕋 Hotels in Makkah</a>
+                <a href="https://wa.me/201066888551?text=I%20want%20to%20book%20a%20hotel%20in%20Madinah" target="_blank" data-en="🕌 Hotels in Madinah" data-ar="🕌 فنادق المدينة">🕌 Hotels in Madinah</a>
+                <a href="https://wa.me/201066888551?text=Hello%2C%20I%20am%20a%20travel%20agency%20and%20I%20would%20like%20to%20discuss%20B2B%20partnership" target="_blank" data-en="🤝 B2B Partnership" data-ar="🤝 شراكة B2B">🤝 B2B Partnership</a>
+                <a href="https://wa.me/201066888551?text=Hello%20Zumra%20Hotels%2C%20I%20would%20like%20a%20quote%20for%20hotel%20booking" target="_blank" data-en="💰 Get a Quote" data-ar="💰 احصل على عرض سعر">💰 Get a Quote</a>
+            </div>
+        </div>
+    </div>
+
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/201066888551?text=Hello%20Zumra%20Hotels" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <a href="javascript:void(0)" class="whatsapp-float" id="waToggle" title="Chat on WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </div>
 
     <script>
         // Language Switching
@@ -1314,6 +1661,38 @@
                 switchLang('ar');
             }
         })();
+
+        // Page Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('hidden');
+            }, 800);
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // WhatsApp Widget Toggle
+        const waToggle = document.getElementById('waToggle');
+        const waWidget = document.getElementById('waWidget');
+        waToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            waWidget.classList.toggle('open');
+        });
+
+        // Close widget when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!waWidget.contains(e.target) && !waToggle.contains(e.target)) {
+                waWidget.classList.remove('open');
+            }
+        });
     </script>
 </body>
 </html>
