@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <title>Zumra Hotels | حجز فنادق مكة المكرمة والمدينة المنورة | Hotels in Makkah & Madinah | فنادق الحج والعمرة | B2B Hotel Supplier Saudi Arabia</title>
     
     <!-- Primary Meta Tags - English -->
@@ -767,6 +777,34 @@
             50% { box-shadow: 0 6px 40px rgba(37,211,102,0.8); }
         }
 
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-8px) translateX(-50%); }
+            60% { transform: translateY(-4px) translateX(-50%); }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2.5s infinite;
+            z-index: 5;
+        }
+
+        .scroll-indicator svg {
+            opacity: 0.5;
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -895,6 +933,11 @@
                 </a>
                 <a href="#services" class="btn btn-outline" data-en="Explore Services" data-ar="استكشف خدماتنا">Explore Services</a>
             </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span data-en="Scroll" data-ar="اسحب">Scroll</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
         </div>
     </section>
 
@@ -1093,14 +1136,41 @@
             });
 
             // Update WhatsApp messages for Arabic
-            if (lang === 'ar') {
-                document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href.includes('Hello%20Zumra')) {
-                        link.setAttribute('href', href.replace('Hello%20Zumra%20Hotels%2C%20I%20would%20like%20to%20inquire%20about%20hotel%20booking', '%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B2%D9%85%D8%B1%D8%A9%20%D9%84%D9%84%D9%81%D9%86%D8%A7%D8%AF%D9%82%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D8%AC%D8%B2%20%D9%81%D9%86%D8%AF%D9%82'));
-                    }
-                });
-            }
+            const whatsappMessages = {
+                en: {
+                    inquiry: 'Hello%20Zumra%20Hotels%2C%20I%20would%20like%20to%20inquire%20about%20hotel%20booking',
+                    makkah: 'I%20want%20to%20book%20a%20hotel%20in%20Makkah',
+                    madinah: 'I%20want%20to%20book%20a%20hotel%20in%20Madinah',
+                    b2b: 'Hello%2C%20I%20am%20a%20travel%20agency%20and%20I%20would%20like%20to%20discuss%20B2B%20partnership',
+                    quote: 'Hello%20Zumra%20Hotels%2C%20I%20would%20like%20a%20quote%20for%20hotel%20booking',
+                    general: 'Hello%20Zumra%20Hotels'
+                },
+                ar: {
+                    inquiry: '%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B2%D9%85%D8%B1%D8%A9%20%D9%84%D9%84%D9%81%D9%86%D8%A7%D8%AF%D9%82%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D8%AC%D8%B2%20%D9%81%D9%86%D8%AF%D9%82',
+                    makkah: '%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%81%D9%86%D8%AF%D9%82%20%D9%81%D9%8A%20%D9%85%D9%83%D8%A9',
+                    madinah: '%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%81%D9%86%D8%AF%D9%82%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9',
+                    b2b: '%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D9%86%D8%A7%20%D9%88%D9%83%D8%A7%D9%84%D8%A9%20%D8%B3%D9%81%D8%B1%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D8%B4%D8%B1%D8%A7%D9%83%D8%A9%20B2B',
+                    quote: '%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B2%D9%85%D8%B1%D8%A9%20%D9%84%D9%84%D9%81%D9%86%D8%A7%D8%AF%D9%82%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1',
+                    general: '%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B2%D9%85%D8%B1%D8%A9%20%D9%84%D9%84%D9%81%D9%86%D8%A7%D8%AF%D9%82'
+                }
+            };
+            const msgs = whatsappMessages[lang];
+            document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href.includes('inquire')) {
+                    link.setAttribute('href', 'https://wa.me/201066888551?text=' + msgs.inquiry);
+                } else if (href.includes('Makkah') || href.includes('%D9%85%D9%83%D8%A9')) {
+                    link.setAttribute('href', 'https://wa.me/201066888551?text=' + msgs.makkah);
+                } else if (href.includes('Madinah') || href.includes('%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9')) {
+                    link.setAttribute('href', 'https://wa.me/201066888551?text=' + msgs.madinah);
+                } else if (href.includes('B2B') || href.includes('partnership')) {
+                    link.setAttribute('href', 'https://wa.me/201066888551?text=' + msgs.b2b);
+                } else if (href.includes('quote') || href.includes('%D8%B9%D8%B1%D8%B6')) {
+                    link.setAttribute('href', 'https://wa.me/201066888551?text=' + msgs.quote);
+                } else if (href.includes('wa.me/201066888551')) {
+                    link.setAttribute('href', 'https://wa.me/201066888551?text=' + msgs.general);
+                }
+            });
 
             // Adjust language toggle position for RTL
             // No longer needed - toggle is inside navbar
